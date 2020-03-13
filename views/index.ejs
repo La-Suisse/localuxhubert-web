@@ -1,0 +1,94 @@
+<%- include('header') -%>
+
+<div class="container my-5 py-5 z-depth-1">
+    <section class="dark-grey-text text-center">
+        <h3 class="font-weight-bold pt-5 pb-2">
+            Bienvenu sur localuxhubert.com,
+            <br>l'expert en location de véhicule pour tous vos besoins !
+            <br><br>Découvrez les différentes formules proposées ci-dessous.
+        </h3>
+        <div class="row mx-3">
+            <div class="col-md-4 px-4 mb-4">
+                <div class="view">
+                    <img src="https://mdbootstrap.com/img/illustrations/drawkit-drawing-man-colour.svg"
+                        class="img-fluid" alt="smaple image">
+                </div>
+            </div>
+            <div class="col-md-4 px-4 mb-4">
+                <div class="view">
+                    <img src="https://mdbootstrap.com/img/illustrations/drawkit-phone-conversation-colour.svg"
+                        class="img-fluid" alt="smaple image">
+                </div>
+            </div>
+            <div class="col-md-4 px-4 mb-4">
+                <div class="view">
+                    <img src="https://mdbootstrap.com/img/illustrations/app-user-colour.svg" class="img-fluid"
+                        alt="smaple image">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container my-5">
+    <section class="text-center">
+        <h3 class="font-weight-bold dark-grey-text pb-2 mb-4">Les différentes formules sans chauffeur</h3>
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="card pricing-card white-text">
+                    <div class="aqua-gradient rounded-top">
+                        <h4 class="option mtb-10" style="font-weight: bold;">FORFAIT 4H</h4>
+                    </div>
+                    <div class="card-body striped green-striped card-background px-5 bg-price">
+                        <h2 class="my-4 pb-3 h1">20$</h2>
+                        <p><strong>4</strong> heures de location</p>
+                        <hr>
+                        <p><strong>150</strong> kilomètres inclus</p>
+                        <form action="/forfait" method="post">
+                            <input type="hidden" name="forfait" value="1">
+                            <button type="submit" class="mb-3 mt-3 btn aqua-gradient btn-rounded">Choisir</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card pricing-card white-text">
+                    <div class="peach-gradient rounded-top">
+                        <h4 class="option mtb-10" style="font-weight: bold;">FORFAIT 24H</h4>
+                    </div>
+                    <div class="card-body striped orange-striped card-background px-5 bg-price">
+                        <h2 class="my-4 pb-3 h1">80$</h2>
+                        <p><strong>24</strong> heures de location</p>
+                        <hr>
+                        <p><strong>300</strong> kilomètres inclus</p>
+                        <form action="/forfait" method="POST">
+                            <input type="hidden" name="forfait" value="2">
+                            <button type="submit" class="mb-3 mt-3 btn peach-gradient btn-rounded">Choisir</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card pricing-card white-text">
+                    <div class="purple-gradient rounded-top">
+                        <h4 class="option mtb-10" style="font-weight: bold;">FORFAIT 48H</h4>
+                    </div>
+                    <div class="card-body striped purple-striped card-background px-5 bg-price">
+                        <h2 class="my-4 pb-3 h1">100$</h2>
+                        <p><strong>48</strong> heures de location</p>
+                        <hr>
+                        <p><strong>700</strong> kilomètres inclus</p>
+                        <form action="/forfait" method="POST">
+                            <input type="hidden" name="forfait" value="3">
+                            <button class="mb-3 mt-3 btn purple-gradient btn-rounded">Choisir</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<%- include('footer') -%>

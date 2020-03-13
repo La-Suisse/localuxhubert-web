@@ -1,0 +1,49 @@
+<%- include('header') -%>
+<div class="container my-5 px-0 z-depth-1">
+    <section class="p-5 my-md-5 text-center"
+        style="background-image: url(https://mdbootstrap.com/img/Photos/Others/background.jpg); background-size: cover; background-position: center center;">
+
+        <form class="my-5 mx-md-5" action="/new" method="POST">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <form class="text-center" style="color: #757575;" action="#!">
+                                <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">
+                                    Veuillez entrer vos données personnelles
+                                </h3>
+                                <input type="text" id="nom" name="nom" class="form-control mb-4" placeholder="Nom"
+                                    pattern="[A-Za-z]*" required>
+                                <input type="text" id="prenom" name="prenom" class="form-control mb-4"
+                                    placeholder="Prénom" required>
+                                <input type="email" id="email" name="email" class="form-control mb-4"
+                                    placeholder="Email" required>
+                                <input type="tel" id="tel" name="tel" class="form-control mb-4" placeholder="Téléphone"
+                                    pattern="[0-9]{10}" required>
+                                <input type="text" id="adresse" name="adresse" class="form-control mb-4"
+                                    placeholder="Adresse" required>
+                                <input type="text" id="cp" name="cp" class="form-control mb-4" placeholder="Code postal"
+                                    pattern="[0-9]{5}" required>
+                                <input type="text" id="ville" name="ville" class="form-control mb-4" placeholder="Ville"
+                                    required>
+                                <select id="pays" name="pays" class="browser-default custom-select">
+                                    <option value="" disabled>Choisir un pays</option>
+                                    <% Pays.forEach((pays) => { %>
+                                    <option id="<%= pays.ID %>" value="<%= pays.ID %>"><%= pays.NOM %></option>
+                                    <% }); %>
+                                </select>
+
+                                <div class="text-center">
+                                    <button type="submit"
+                                        class="btn btn-outline-orange btn-rounded my-4 waves-effect">Envoyer</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+<%- include('footer') -%>
