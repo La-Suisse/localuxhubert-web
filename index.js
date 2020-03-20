@@ -4,7 +4,8 @@ var bodyParser = require("body-parser")
 var mysql = require("mysql")
 var app = express()
 
-var con = mysql.createConnection({
+var pool = mysql.createPool({
+    connectionLimit: 10,
     host: "192.168.2.4",
     user: "sqlaneury",
     password: "savary",
@@ -22,12 +23,16 @@ app.get("/", (req, rep) => {
 
 app.post("/forfait", (req, rep) => {
     console.log(req.body)
-    con.connect(function (err) {
+    pool.getConnection(function (err, connection) {
         if (err) throw err
-        con.query("SELECT * FROM PAYS;", function (err, result, field) {
+        connection.query("SELECT * FROM PAYS ORDER BY NOM;", function (err, result, field) {
             if (err) throw err
-            rep.render("dataperso.ejs", {
-                Pays: result
+            var pays = result
+            connection.query("SELECT * FROM MODELE ORDER BY NOM;", function (err, result, field) {
+                rep.render("dataperso.ejs", {
+                    Pays: pays,
+                    Modeles: result
+                })
             })
         })
     })
@@ -35,6 +40,7 @@ app.post("/forfait", (req, rep) => {
 
 app.post("/new", (req, rep) => {
     var client = {
+        Modele: req.body.modele,
         Nom: req.body.nom,
         Prenom: req.body.prenom,
         Mail: req.body.email,
@@ -44,6 +50,10 @@ app.post("/new", (req, rep) => {
         Ville: req.body.ville,
         Pays: req.body.pays
     }
+    pool.getConnection(function (err, connection) {
+        if (err) throw err
+        // INSERT INTO
+    })
     console.log(client)
     rep.redirect("/")
 })

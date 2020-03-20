@@ -10,12 +10,18 @@
                         <div class="card-body">
                             <form class="text-center" style="color: #757575;" action="#!">
                                 <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">
-                                    Veuillez entrer vos données personnelles
+                                    Veuillez entrer le type de voiture souhaité ainsi que vos données personnelles
                                 </h3>
+                                <select id="modele" name="modele" class="browser-default custom-select mb-4">
+                                    <option value="" disabled>Choisir un modèle de voiture</option>
+                                    <% Modeles.forEach((modele) => { %>
+                                    <option id="<%= modele.ID %>" value="<%= modele.ID %>"><%= modele.NOM %></option>
+                                    <% }); %>
+                                </select>
                                 <input type="text" id="nom" name="nom" class="form-control mb-4" placeholder="Nom"
-                                    pattern="[A-Za-z]*" required>
+                                    pattern="[A-Za-zÀ-ÿ]*" required>
                                 <input type="text" id="prenom" name="prenom" class="form-control mb-4"
-                                    placeholder="Prénom" required>
+                                    placeholder="Prénom" pattern="[A-Za-zÀ-ÿ]*" required>
                                 <input type="email" id="email" name="email" class="form-control mb-4"
                                     placeholder="Email" required>
                                 <input type="tel" id="tel" name="tel" class="form-control mb-4" placeholder="Téléphone"
